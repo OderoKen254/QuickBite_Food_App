@@ -13,7 +13,7 @@ export default function Loader({ size = 'medium', color = '#FF6B6B', text = 'Loa
         // spread operator for inserting size
         ...loaderSizes[size],
         // for the loader spinner
-        // only the top takes the color (this is my favorite part)
+        // only the top takes the color
         borderColor: `${color} transparent transparent transparent`
       };
     
