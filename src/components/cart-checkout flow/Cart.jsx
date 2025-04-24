@@ -45,6 +45,10 @@ export default function Cart() {
         console.error(error);
       });
   };
+  const totalPrice = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="cart-container">
@@ -61,7 +65,7 @@ export default function Cart() {
       </div>
       <div className="cart-summary">
         <div className="cart-total">
-          <h3>Total :0</h3>
+          <h3>Ksh{totalPrice}</h3>
         </div>
         <Link to="/checkout">
           <button className="checkout-button">Checkout</button>
