@@ -29,7 +29,7 @@ export default function Footer() {
 
 <div className="footer-section">
   <h3>Follow Us</h3>
-  <div className="social-media links">
+  <div className="social-links">
     <a href="https://www.facebook.com/quickbite" target="_blank" rel="noopener noreferrer">Facebook</a>
     <a href="https://www.twitter.com/quickbite" target="_blank" rel="noopener noreferrer">Twitter</a>
     <a href="https://www.instagram.com/quickbite" target="_blank" rel="noopener noreferrer">Instagram</a>
