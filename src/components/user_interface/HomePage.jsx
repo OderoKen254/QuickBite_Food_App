@@ -30,7 +30,7 @@ const HomePage = () => {
       }
       
       // Apply cuisine filter
-      if (cuisineFilter && DishesFilter !== 'All') {
+      if (cuisineFilter && cuisineFilter !== 'All') {
         filtered = filtered.filter(restaurant => 
           restaurant.cuisineType === cuisineFilter
         );
