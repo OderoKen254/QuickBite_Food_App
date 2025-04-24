@@ -10,6 +10,9 @@
   flex-direction: column;
   gap: 15px;
 }
+.item-price {
+  color: green;
+}
 .cart-summary {
   flex: 1;
   background-color: rgb(245, 255, 230);
