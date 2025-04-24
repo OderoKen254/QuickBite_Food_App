@@ -34,6 +34,18 @@ export default function Cart() {
     );
   };
 
+  const handleDelete = (id) => {
+    fetch(`http://localhost:3000/cart/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="cart-container">
       <div className="cart-items">
@@ -43,6 +55,7 @@ export default function Cart() {
             item={item}
             onIncrease={() => handleIncrease(item.id)}
             onDecrease={() => handleDecrease(item.id)}
+            onDelete={() => handleDelete(item.id)}
           />
         ))}
       </div>
