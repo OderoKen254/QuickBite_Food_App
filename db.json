@@ -1,5 +1,7 @@
 {
-  "dishes": [
+  "dishes": [],
+
+  "cart": [
     {
       "id": 1,
       "name": "Cheese Burger",
