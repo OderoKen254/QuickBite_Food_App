@@ -17,6 +17,9 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
           +
         </button>
       </div>
+      <button onClick={onDelete} className="delete-button">
+        Remove
+      </button>
     </div>
   );
 }
