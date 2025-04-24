@@ -30,12 +30,11 @@ const HomePage = () => {
       }
       
       // Apply cuisine filter
-      if (cuisineFilter && cuisineFilter !== 'All') {
-        filtered = filtered.filter(restaurant => 
-          restaurant.cuisineType === cuisineFilter
-        );
-      }
-      
+        if (cuisineFilter) {
+            filtered = filtered.filter(restaurant => 
+            restaurant.cuisineType.toLowerCase() === cuisineFilter.toLowerCase()
+            );
+        }
       setFilteredRestaurants(filtered);
     }
   }, [restaurants, searchTerm, cuisineFilter]);
