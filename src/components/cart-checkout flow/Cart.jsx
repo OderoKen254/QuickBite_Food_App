@@ -67,9 +67,9 @@ export default function Cart() {
         <div className="cart-total">
           <h3>Ksh{totalPrice}</h3>
         </div>
-        <Link to="/checkout">
+        {/* <Link to="/checkout">
           <button className="checkout-button">Checkout</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
