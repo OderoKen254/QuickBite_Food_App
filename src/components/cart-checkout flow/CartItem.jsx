@@ -9,6 +9,14 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
         <p className="cart-item-description">{item.description}</p>
         <h4 className="item-item-price">Ksh{item.price}</h4>
       </div>
+      <div className="quantity-controls">
+        <button className="quantity-button" onClick={onDecrease}>
+          -
+        </button>
+        <button className="quantity-button" onClick={onIncrease}>
+          +
+        </button>
+      </div>
     </div>
   );
 }
