@@ -16,7 +16,7 @@ const HomePage = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   // Cuisines for filter
-  const cuisines = ['All', '', '', '', '', '', ''];
+  const cuisines = ['All', 'Nyama Choma', 'Italian', 'Chinese', 'Mexican', 'Arabian', 'Authentic Kenyan Food', 'Fast Food'];
 
   useEffect(() => {
     if (restaurants) {
