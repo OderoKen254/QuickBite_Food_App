@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
+import "./Cart.css";
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -65,7 +66,7 @@ export default function Cart() {
       </div>
       <div className="cart-summary">
         <div className="cart-total">
-          <h3>Ksh{totalPrice}</h3>
+          <h3>Total: KSH{totalPrice}</h3>
         </div>
         {/* <Link to="/checkout">
           <button className="checkout-button">Checkout</button>

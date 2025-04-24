@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import "./Cart.css";
 
 export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
   return (
@@ -13,6 +14,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
         <button className="quantity-button" onClick={onDecrease}>
           -
         </button>
+        <span className="quantity-display">{item.quantity}</span>
         <button className="quantity-button" onClick={onIncrease}>
           +
         </button>
