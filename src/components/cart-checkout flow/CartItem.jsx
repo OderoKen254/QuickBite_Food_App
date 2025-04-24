@@ -25,3 +25,4 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
     </div>
   );
 }
+

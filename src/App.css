@@ -1,42 +1,216 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
   padding: 2rem;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer a {
+  color: white;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
 }
 
-.card {
-  padding: 2em;
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: red;
+  text-align: center;
+  padding: 2rem;
+}
+
+.homepage h2, .menupage h2, .cart h2, .checkout h2, .order-confirmation h2 {
+  margin-bottom: 1rem;
+}
+
+.restaurant-list, .menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.restaurant-card, .menu-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.restaurant-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.restaurant-card a, .menu-item button, .cart-item button, .checkout button, .order-confirmation a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.restaurant-card a:hover, .menu-item button:hover, .cart-item button:hover, .checkout button:hover, .order-confirmation a:hover {
+  background-color: #2980b9;
+}
+
+.menu-item button {
+  cursor: pointer;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-item input {
+  width: 60px;
+  padding: 0.3rem;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.payment-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-form input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.order-summary {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.order-summary ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.order-confirmation {
+  text-align: center;
+}
+
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+.checkout-button {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
 }
