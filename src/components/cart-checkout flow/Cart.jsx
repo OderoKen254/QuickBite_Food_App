@@ -17,11 +17,33 @@ export default function Cart() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleIncrease = (id) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+  const handleDecrease = (id) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+
   return (
     <div className="cart-container">
       <div className="cart-items">
         {cartItems.map((item) => (
-          <CartItem key={item.id} item={item} />
+          <CartItem
+            key={item.id}
+            item={item}
+            onIncrease={() => handleIncrease(item.id)}
+            onDecrease={() => handleDecrease(item.id)}
+          />
         ))}
       </div>
       <div className="cart-summary">
