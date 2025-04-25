@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function CartItem() {
-  return <div>CartItem</div>;
+export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
+  return <div></div>;
 }
