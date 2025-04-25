@@ -601,6 +601,12 @@
       "name": "Tiramisu",
       "price": 600,
       "description": "Coffee-flavored Italian dessert."
+    },
+    {
+      "id": "1-6",
+      "name": "Sukuma Wiki",
+      "price": 150,
+      "description": "Sautéed collard greens with onions."
     }
   ]
 }
