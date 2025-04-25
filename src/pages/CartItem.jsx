@@ -13,6 +13,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
         <span>{item.quantity}</span>
         <button onClick={onIncrease}>+</button>
       </div>
+      <button onClick={onDelete}>Remove</button>
     </div>
   );
 }
