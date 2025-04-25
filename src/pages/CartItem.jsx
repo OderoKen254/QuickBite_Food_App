@@ -8,6 +8,11 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
         <p>{item.description}</p>
         <h4>Ksh {item.price}</h4>
       </div>
+      <div>
+        <button onClick={onDecrease}>-</button>
+        <span>{item.quantity}</span>
+        <button onClick={onIncrease}>+</button>
+      </div>
     </div>
   );
 }
