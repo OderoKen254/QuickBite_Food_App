@@ -97,3 +97,4 @@ This project is for educational and demonstration purposes. You can modify it fr
 You can find the source code on GitHub here:
 
 [QuickBite Food App Repository](https://github.com/OderoKen254/QuickBite_Food_App)
+https://quick-bite-food-app-b2pt.vercel.app/
