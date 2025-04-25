@@ -34,7 +34,7 @@ export default function Home() {
     <div className="max-w-6xl mx-auto px-4 py-10">
       {!selectedRestaurant ? (
         <>
-          {/* 🌟 QuickBite Intro */}
+       
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
               Welcome to <span className="text-indigo-600">QuickBite</span>
@@ -46,7 +46,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 🍽️ Restaurant Grid */}
+        
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {restaurants.map((restaurant) => (
               <motion.div
@@ -75,7 +75,7 @@ export default function Home() {
         </>
       ) : (
         <>
-          {/* 🍽️ Selected Restaurant Menu */}
+       
           <button
             className="mb-6 text-indigo-600 hover:underline"
             onClick={() => setSelectedRestaurant(null)}
