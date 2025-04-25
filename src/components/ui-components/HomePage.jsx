@@ -1,8 +1,9 @@
-//HomePage.js
+// src/components/ui-components/HomePage.jsx
+
 import React, { useState, useEffect } from 'react';
-import RestaurantCard from '../components/RestaurantCard';
-import Loader from '../components/Loader';
-import { useFetchRestaurants } from '../hooks/useFetchRestaurants';
+import RestaurantCard from './RestaurantCard'; 
+import Loader from '../core-components/Loader'; 
+import { useFetchRestaurants } from '../../hooks/useFetchRestaurants'; 
 import { SearchIcon, AdjustmentsIcon } from '@heroicons/react/outline';
 import './HomePage.css';
 
@@ -13,34 +14,30 @@ const HomePage = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Cuisines for filter
-  const cuisines = ['All', 'Nyama Choma', 'Italian', 'Chinese', 'Mexican', 'Arabian', 'Authentic Kenyan Food', 'Fast Food'];
+  const cuisines = [
+    'All', 'Nyama Choma', 'Italian', 'Chinese', 'Mexican',
+    'Arabian', 'Authentic Kenyan Food', 'Fast Food'
+  ];
 
   useEffect(() => {
-    if (restaurants) {
-      let filtered = [...restaurants];
-      
-      // Apply search filter
-      if (searchTerm) {
-        filtered = filtered.filter(restaurant => 
-          restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          restaurant.cuisineType.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      }
-      
-      // Apply cuisine filter
-      if (cuisineFilter && cuisineFilter !== 'All') {
-        filtered = filtered.filter(restaurant => 
-          restaurant.cuisineType === cuisineFilter
-        );
-      }
-      
-      setFilteredRestaurants(filtered);
+    if (!restaurants) return;
+    let filtered = [...restaurants];
+
+    if (searchTerm) {
+      filtered = filtered.filter(r =>
+        r.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        r.cuisineType.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     }
+
+    if (cuisineFilter && cuisineFilter !== 'All') {
+      filtered = filtered.filter(r => r.cuisineType === cuisineFilter);
+    }
+
+    setFilteredRestaurants(filtered);
   }, [restaurants, searchTerm, cuisineFilter]);
 
   if (loading) return <Loader />;
-  
   if (error) return (
     <div className="error-container">
       <p className="error-message">Error loading restaurants. Please try again later.</p>
@@ -52,8 +49,10 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="hero-section">
         <h1 className="hero-title">Hungry? We've got you covered!</h1>
-        <p className="hero-subtitle">Order food from the finest restaurants in your area.</p>
-        
+        <p className="hero-subtitle">
+          Order food from the finest restaurants in your area.
+        </p>
+
         {/* Search Bar */}
         <div className="search-container">
           <input
@@ -61,12 +60,12 @@ const HomePage = () => {
             placeholder="Search for restaurants or cuisines..."
             className="search-input"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
           />
           <div className="search-icon">
             <SearchIcon className="icon" />
           </div>
-          <button 
+          <button
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
           >
@@ -74,16 +73,16 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Filters */}
       {showFilters && (
         <div className="filters-container">
           <h2 className="filters-title">Filter by Cuisine:</h2>
           <div className="cuisine-filters">
-            {cuisines.map((cuisine) => (
+            {cuisines.map(cuisine => (
               <button
                 key={cuisine}
-                className={cuisine-filter-btn ${cuisineFilter === cuisine ? 'active' : ''}}
+                className={`cuisine-filter-btn ${cuisineFilter === cuisine ? 'active' : ''}`}
                 onClick={() => setCuisineFilter(cuisine === 'All' ? '' : cuisine)}
               >
                 {cuisine}
@@ -92,34 +91,36 @@ const HomePage = () => {
           </div>
         </div>
       )}
-      
+
       {/* Featured Restaurants */}
       <section className="restaurant-section">
         <h2 className="section-title">Featured Restaurants</h2>
-        {filteredRestaurants.length > 0 ? (
+        {filteredRestaurants.filter(r => r.featured).length > 0 ? (
           <div className="restaurants-grid">
             {filteredRestaurants
-              .filter(restaurant => restaurant.featured)
-              .map(restaurant => (
-                <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+              .filter(r => r.featured)
+              .map(r => (
+                <RestaurantCard key={r.id} restaurant={r} />
               ))}
           </div>
         ) : (
           <p className="empty-message">No featured restaurants available.</p>
         )}
       </section>
-      
+
       {/* All Restaurants */}
       <section className="restaurant-section">
         <h2 className="section-title">All Restaurants</h2>
         {filteredRestaurants.length > 0 ? (
           <div className="restaurants-grid">
-            {filteredRestaurants.map(restaurant => (
-              <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+            {filteredRestaurants.map(r => (
+              <RestaurantCard key={r.id} restaurant={r} />
             ))}
           </div>
         ) : (
-          <p className="empty-message">No restaurants found matching your criteria.</p>
+          <p className="empty-message">
+            No restaurants found matching your criteria.
+          </p>
         )}
       </section>
     </div>

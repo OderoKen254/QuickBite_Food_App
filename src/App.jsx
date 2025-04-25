@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/core/Navbar';
-import Footer from './components/core/Footer';
-import HomePage from './components/ui/HomePage';
-import MenuPage from './components/ui/MenuPage';
-import Cart from './components/cart/Cart';
-import Checkout from './components/cart/Checkout';
-import OrderConfirmation from './components/feedback/OrderConfirmation';
+import Navbar from './components/core-components/NavBar';
+import Footer from './components/core-components/Footer';
+import HomePage from './components/ui-components/HomePage';
+import MenuPage from './components/ui-components/MenuItem';
+import Cart from './components/cart-checkout flow/Cart';
+import Checkout from './components/cart-checkout flow/Checkout';
+import OrderConfirmation from './components/order-conf-feedback/OrderConfirmation';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<NavBar />} />
           <Route path="/menu/:restaurantId" element={<MenuPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />

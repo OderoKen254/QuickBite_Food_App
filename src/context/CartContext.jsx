@@ -1,6 +1,9 @@
-// Description: This file contains the CartContext and CartProvider components, which manage the cart state and provide functions to manipulate the cart items. It also includes a notification system to inform users about cart actions.
+// Description: This file contains the CartContext and CartProvider components,
+// which manage the cart state and provide functions to manipulate the cart items.
+// It also includes a notification system to inform users about cart actions.
+
 import { createContext, useState, useContext } from 'react';
-import NotificationBanner from '../components/feedback/NotificationBanner';
+import NotificationBanner from '../components/order-conf-feedback/NotificationBanner';
 
 export const CartContext = createContext();
 
@@ -18,7 +21,8 @@ export function CartProvider({ children }) {
       }
       return [...prev, { ...item, quantity: 1 }];
     });
-    setNotification({ message: `${item.name} added to cart`, type: 'success' });
+
+    setNotification({ message: ${item.name} added to cart, type: 'success' });
     setTimeout(() => setNotification(null), 3000);
   };
 
@@ -34,7 +38,7 @@ export function CartProvider({ children }) {
     } else {
       setCartItems((prev) =>
         prev.map((item) =>
-          item.id === item.id ? { ...item, quantity } : item
+          item.id === id ? { ...item, quantity } : item
         )
       );
     }

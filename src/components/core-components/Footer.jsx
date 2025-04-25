@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../hooks/App.css';
-
+// import './App.css';
 
 export default function Footer() {
    return (
@@ -25,7 +24,6 @@ export default function Footer() {
 <p>Address: Food Street, Cuisine City</p>
 
 </div>
-
 
 <div className="footer-section">
   <h3>Follow Us</h3>

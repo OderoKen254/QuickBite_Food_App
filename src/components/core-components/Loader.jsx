@@ -1,5 +1,5 @@
 import React from 'react';
-import '../hooks/App.css';
+
 
 export default function Loader({ size = 'medium', color = '#FF6B6B', text = 'Loading...' }) {
     const loaderSizes = {
